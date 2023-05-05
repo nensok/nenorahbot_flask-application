@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css" integrity="sha512-rt/SrQ4UNIaGfDyEXZtNcyWvQeOq0QLygHluFQcSjaGB04IxWhal71tKuzP6K8eYXYB6vJV4pHkXcmFGGQ1/0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <title>NenorahBot: Chat with me</title>
+</head>
+<body>
+    <section>
+        <div class="container py-5">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-8 col-lg-6 col-xl-4">
+                
+      
+              <div class="card" id="chat1" style="border-radius: 15px;">
+                <div
+                  class="card-header d-flex justify-content-between align-items-center p-3 bg-info text-white border-bottom-0"
+                  style="border-top-left-radius: 15px; border-top-right-radius: 15px;">
+                  <i class="fas fa-angle-left"></i>
+                  <p class="mb-0 fw-bold">NenorahBot</p>
+                  <i class="fas fa-times"></i>
+                </div>
+                <div class="card-body">
+      
+                  <div class="d-flex flex-row justify-content-start mb-4">
+                    <img src="{{ url_for('static', filename='images/bot.png') }}" alt="Bot Image" style="width: 45px; height: 100%;">
+                    <div class="p-3 ms-3" style="border-radius: 15px; background-color: rgba(57, 192, 237,.2);">
+                      <p class="small mb-0">
+                        {% if response_text %}
+                          <p>{{ response_text }}</p>
+                        {% else %}
+                            <p>Hi I'am Nenorahbot, Whats your name?</p>
+                        {% endif %}
+                      </p>
+                    </div>
+                  </div>
+      
+                  <div class="d-flex flex-row justify-content-end mb-4">
+                    <div class="p-3 me-3 border" style="border-radius: 15px; background-color: #fbfbfb;">
+                      <p class="small mb-0">{{ user_input }}</p>
+                    </div>
+                    <img src="{{ url_for('static', filename='images/user.jpeg') }}" alt="User Image" style="width: 45px; height: 100%;">
+                  </div>
+      
+                  
+                  <form action="{{ url_for('chat') }}" method="POST" id="chat-form">
+                        <div class="form-outline">
+                            <textarea class="form-control" id="textAreaExample" rows="4" name="user_input"></textarea>
+                        </div>
+                        <button class="btn btn-info mt-4"> Message </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  </body>
+</html>
